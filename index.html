@@ -22,9 +22,9 @@
 :root {
   --ink:        #16180F;   /* main text */
   --paper:      #F3F2EC;   /* page background */
-  --green:      #01796F;   /* pine */
+  --blue:      #311E7B;   /* print ink */
   --green-soft: #3D5A4C;
-  --brass:      #A8842C;   /* accent — like brass hardware */
+  --red:      #E3242B;   /* red ink */
   --rule:       #CBC9BE;   /* hairlines and borders */
 
   --display: "Bricolage Grotesque", sans-serif;
@@ -49,7 +49,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 
 :focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--red);
   outline-offset: 3px;
 }
 
@@ -69,7 +69,7 @@ a { color: inherit; }
 
 /* ── HEADER ───────────────────────────────────────────────── */
 header {
-  background: var(--green);
+  background: var(--blue);
   color: var(--paper);
   padding: 0.9rem 0;
   position: sticky;
@@ -89,7 +89,7 @@ header .wrap {
   letter-spacing: -0.01em;
   text-decoration: none;
 }
-.mark span { color: var(--brass); }
+.mark span { color: var(--red); }
 
 header nav {
   display: flex;
@@ -104,7 +104,7 @@ header nav a {
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
 }
-header nav a:hover { border-bottom-color: var(--brass); }
+header nav a:hover { border-bottom-color: var(--red); }
 
 /* ── HERO ─────────────────────────────────────────────────── */
 .hero { padding: 5.5rem 0 4rem; }
@@ -120,7 +120,7 @@ header nav a:hover { border-bottom-color: var(--brass); }
 }
 .hero h1 em {
   font-style: normal;
-  color: var(--brass);
+  color: var(--blue);
 }
 .hero p {
   max-width: 46ch;
@@ -230,22 +230,22 @@ header nav a:hover { border-bottom-color: var(--brass); }
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.85rem 1.5rem;
-  background: var(--green);
+  background: var(--blue);
   color: var(--paper);
-  border: 1px solid var(--green);
+  border: 1px solid var(--blue);
   transition: background 0.15s ease, color 0.15s ease;
 }
-.btn:hover { background: var(--brass); border-color: var(--brass); }
+.btn:hover { background: var(--red); border-color: var(--red); }
 
 .btn-quiet {
   background: transparent;
-  color: var(--green);
+  color: var(--blue);
 }
-.btn-quiet:hover { background: var(--green); color: var(--paper); border-color: var(--green); }
+.btn-quiet:hover { background: var(--blue); color: var(--paper); border-color: var(--blue); }
 
 /* ── COMMISSIONS ──────────────────────────────────────────── */
 .commissions {
-  background: var(--green);
+  background: var(--blue);
   color: var(--paper);
   padding: 4.5rem 0;
   margin-top: 2rem;
@@ -261,7 +261,7 @@ header nav a:hover { border-bottom-color: var(--brass); }
   max-width: 20ch;
 }
 .commissions p { max-width: 52ch; margin: 0 0 1.25rem; color: #DDE3DC; }
-.commissions .btn { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+.commissions .btn { background: var(--red); border-color: var(--red); color: var(--ink); }
 .commissions .btn:hover { background: var(--paper); border-color: var(--paper); }
 
 .steps {
@@ -281,7 +281,7 @@ header nav a:hover { border-bottom-color: var(--brass); }
   font-size: 0.65rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--brass);
+  color: var(--red);
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
@@ -301,10 +301,10 @@ header nav a:hover { border-bottom-color: var(--brass); }
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
-  border-bottom: 2px solid var(--brass);
+  border-bottom: 2px solid var(--red);
   padding-bottom: 3px;
 }
-.contact-mail:hover { color: var(--brass); }
+.contact-mail:hover { color: var(--red); }
 
 .contact-meta {
   margin-top: 2.5rem;
