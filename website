@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     EDIT THESE TWO LINES FIRST — they show up in Google results
+     ═══════════════════════════════════════════════════════════ -->
+<title>Ridgeline — handmade furniture</title>
+<meta name="description" content="Solid timber furniture, made one piece at a time in West Lothian.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   COLOURS AND FONTS
+   Change a colour here and it changes everywhere on the page.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --ink:        #16180F;   /* main text */
+  --paper:      #F3F2EC;   /* page background */
+  --green:      #22392F;   /* deep workshop green */
+  --green-soft: #3D5A4C;
+  --brass:      #A8842C;   /* accent — like brass hardware */
+  --rule:       #CBC9BE;   /* hairlines and borders */
+
+  --display: "Bricolage Grotesque", sans-serif;
+  --body:    "Newsreader", Georgia, serif;
+  --spec:    "IBM Plex Mono", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: min(1080px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+/* Small monospaced label — used for section headers and specs */
+.tag {
+  font-family: var(--spec);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-soft);
+}
+
+/* ── HEADER ───────────────────────────────────────────────── */
+header {
+  background: var(--green);
+  color: var(--paper);
+  padding: 0.9rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.mark {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.mark span { color: var(--brass); }
+
+header nav {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--spec);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+header nav a {
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+header nav a:hover { border-bottom-color: var(--brass); }
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero { padding: 5.5rem 0 4rem; }
+
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 1.25rem 0 0;
+  max-width: 16ch;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--brass);
+}
+.hero p {
+  max-width: 46ch;
+  margin: 1.5rem 0 0;
+  font-size: 1.1875rem;
+  color: #3A3C31;
+}
+
+/* ── PIECES ───────────────────────────────────────────────── */
+.pieces { padding: 2rem 0 4rem; }
+
+.section-head {
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+/* One piece = image on the left, details on the right */
+.piece {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 2.75rem;
+  align-items: start;
+  padding: 3rem 0;
+  border-top: 1px solid var(--rule);
+}
+.piece:first-of-type { border-top: none; padding-top: 0; }
+
+.piece h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0.5rem 0 0.75rem;
+}
+.piece p { margin: 0 0 1.5rem; color: #3A3C31; }
+
+/* ── THE PHOTO ────────────────────────────────────────────────
+   Right now this is an empty box with a placeholder pattern.
+   To use a real photo, replace the whole <div class="shot">…</div>
+   with:   <img src="images/dining-table.jpg" alt="Oak dining table">
+   ────────────────────────────────────────────────────────── */
+.shot {
+  aspect-ratio: 4 / 3;
+  background:
+    repeating-linear-gradient(
+      92deg,
+      #DAD7CB 0px, #DAD7CB 2px,
+      #E3E0D5 2px, #E3E0D5 9px
+    );
+  border: 1px solid var(--rule);
+  display: grid;
+  place-items: center;
+}
+.shot span {
+  font-family: var(--spec);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8C897C;
+  background: var(--paper);
+  padding: 0.4rem 0.7rem;
+}
+
+/* ── THE SPEC TABLE ───────────────────────────────────────────
+   This is the bit that makes the site feel like a real furniture
+   maker's. People buying furniture need the dimensions.
+   ────────────────────────────────────────────────────────── */
+.spec {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--spec);
+  font-size: 0.775rem;
+  margin-bottom: 1.75rem;
+}
+.spec th, .spec td {
+  text-align: left;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.spec th {
+  font-weight: 400;
+  color: var(--green-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 8.5rem;
+}
+.spec td { font-weight: 500; }
+.spec tr:last-child th,
+.spec tr:last-child td { border-bottom: none; }
+
+.price {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ── BUTTONS ──────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  font-family: var(--spec);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  background: var(--green);
+  color: var(--paper);
+  border: 1px solid var(--green);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover { background: var(--brass); border-color: var(--brass); }
+
+.btn-quiet {
+  background: transparent;
+  color: var(--green);
+}
+.btn-quiet:hover { background: var(--green); color: var(--paper); border-color: var(--green); }
+
+/* ── COMMISSIONS ──────────────────────────────────────────── */
+.commissions {
+  background: var(--green);
+  color: var(--paper);
+  padding: 4.5rem 0;
+  margin-top: 2rem;
+}
+.commissions .tag { color: #9DBFAE; }
+.commissions h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 1rem 0 1.25rem;
+  max-width: 20ch;
+}
+.commissions p { max-width: 52ch; margin: 0 0 1.25rem; color: #DDE3DC; }
+.commissions .btn { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+.commissions .btn:hover { background: var(--paper); border-color: var(--paper); }
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1.75rem;
+}
+.steps li { font-size: 0.95rem; color: #DDE3DC; }
+.steps b {
+  display: block;
+  font-family: var(--spec);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* ── CONTACT ──────────────────────────────────────────────── */
+.contact { padding: 5rem 0; }
+.contact h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  letter-spacing: -0.02em;
+  margin: 1rem 0 1.5rem;
+}
+.contact-mail {
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 3px;
+}
+.contact-mail:hover { color: var(--brass); }
+
+.contact-meta {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.contact-meta div { font-family: var(--spec); font-size: 0.8rem; }
+.contact-meta b {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-soft);
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0 3rem;
+  font-family: var(--spec);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ── PHONES ───────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .wrap { width: min(1080px, 100% - 2.25rem); }
+  .piece { grid-template-columns: 1fr; gap: 1.75rem; }
+  .steps { grid-template-columns: 1fr; gap: 1.5rem; }
+  header nav { gap: 1rem; }
+  .hero { padding: 3.5rem 0 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top">Ridgeline<span>.</span></a>
+    <nav>
+      <a href="#pieces">Pieces</a>
+      <a href="#commissions">Commissions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ═══ HERO ═══════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="tag">Solid timber · West Lothian</p>
+      <h1>Furniture built to outlive <em>the people who buy it.</em></h1>
+      <p>Every piece is made by hand from solid British hardwood — no veneer, no chipboard, no flat-pack fittings. Joints are cut to hold for a century.</p>
+    </div>
+  </section>
+
+  <!-- ═══ PIECES ═════════════════════════════════════════════
+       TO ADD A PIECE: copy everything from <article class="piece">
+       down to its matching </article>, paste it below, edit the words.
+       ══════════════════════════════════════════════════════ -->
+  <section class="pieces" id="pieces">
+    <div class="wrap">
+
+      <div class="section-head">
+        <p class="tag">Available now</p>
+      </div>
+
+      <!-- ─── PIECE 1 ─── -->
+      <article class="piece">
+        <div class="shot"><span>Photo goes here</span></div>
+        <div>
+          <p class="tag">Oak · One of one</p>
+          <h3>Refectory dining table</h3>
+          <p>Cut from a single European oak board, so the grain runs unbroken end to end. Trestle base knocks down flat, which means it will actually get through a tenement stairwell.</p>
+
+          <table class="spec">
+            <tr><th>Timber</th><td>European oak, air-dried</td></tr>
+            <tr><th>Size</th><td>2000 × 900 × 750 mm</td></tr>
+            <tr><th>Joinery</th><td>Draw-bored mortise &amp; tenon</td></tr>
+            <tr><th>Finish</th><td>Hardwax oil</td></tr>
+            <tr><th>Lead time</th><td>Ready to collect</td></tr>
+            <tr><th>Price</th><td><span class="price">£2,400</span></td></tr>
+          </table>
+
+          <a class="btn" href="mailto:hello@example.com?subject=Refectory%20dining%20table">Enquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- ─── PIECE 2 ─── -->
+      <article class="piece">
+        <div class="shot"><span>Photo goes here</span></div>
+        <div>
+          <p class="tag">Ash · Made to order</p>
+          <h3>Spindle-back chair</h3>
+          <p>Steam-bent ash back, hand-shaped seat. Light enough to lift with one hand and still take a grown adult leaning back on two legs.</p>
+
+          <table class="spec">
+            <tr><th>Timber</th><td>Ash, steam-bent</td></tr>
+            <tr><th>Size</th><td>450 × 480 × 860 mm</td></tr>
+            <tr><th>Joinery</th><td>Wedged through-tenon</td></tr>
+            <tr><th>Finish</th><td>Soap or oil</td></tr>
+            <tr><th>Lead time</th><td>6–8 weeks</td></tr>
+            <tr><th>Price</th><td><span class="price">£420</span> each</td></tr>
+          </table>
+
+          <a class="btn" href="mailto:hello@example.com?subject=Spindle-back%20chair">Enquire about this piece</a>
+        </div>
+      </article>
+
+      <!-- ─── PIECE 3 ─── -->
+      <article class="piece">
+        <div class="shot"><span>Photo goes here</span></div>
+        <div>
+          <p class="tag">Walnut · One of one</p>
+          <h3>Hanging wall cabinet</h3>
+          <p>Small, deliberately. Hand-cut dovetails at all four corners, left visible. The door is a single book-matched walnut panel that floats in its frame so it can move with the seasons.</p>
+
+          <table class="spec">
+            <tr><th>Timber</th><td>American black walnut</td></tr>
+            <tr><th>Size</th><td>600 × 180 × 750 mm</td></tr>
+            <tr><th>Joinery</th><td>Hand-cut through dovetails</td></tr>
+            <tr><th>Finish</th><td>Shellac, hand-polished</td></tr>
+            <tr><th>Lead time</th><td>Ready to collect</td></tr>
+            <tr><th>Price</th><td><span class="price">£980</span></td></tr>
+          </table>
+
+          <a class="btn" href="mailto:hello@example.com?subject=Hanging%20wall%20cabinet">Enquire about this piece</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══ COMMISSIONS ════════════════════════════════════════ -->
+  <section class="commissions" id="commissions">
+    <div class="wrap">
+      <p class="tag">Commissions</p>
+      <h2>Bring me the awkward corner nobody can furnish.</h2>
+      <p>Most of my work is made to fit a specific room — an alcove, a sloping ceiling, a chimney breast that no shop-bought unit will ever sit flush against. If you can measure it, I can build for it.</p>
+      <a class="btn" href="#contact">Start a commission</a>
+
+      <ol class="steps">
+        <li><b>First — talk</b>Tell me the room, the use, and the budget. No charge, no obligation.</li>
+        <li><b>Then — drawings</b>You get a scale drawing, a timber sample and a fixed price before anything is cut.</li>
+        <li><b>Then — build</b>Half up front, half on delivery. I send photos as it comes together.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ════════════════════════════════════════════ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="tag">Get in touch</p>
+      <h2>Tell me what you need making.</h2>
+
+      <!-- Change BOTH the address after mailto: AND the visible text -->
+      <a class="contact-mail" href="mailto:hello@example.com">hello@example.com</a>
+
+      <div class="contact-meta">
+        <div><b>Workshop</b>West Lothian, Scotland</div>
+        <div><b>Visits</b>By arrangement, most Saturdays</div>
+        <div><b>Delivery</b>Central belt included, UK-wide quoted</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <span>Ridgeline Furniture</span>
+      <span>Made in Scotland</span>
+    </footer>
+  </div>
+
+</main>
+
+</body>
+</html>
