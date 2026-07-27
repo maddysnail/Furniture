@@ -12,6 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/qqj3pjg.css">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet">
 
 <style>
@@ -23,7 +24,7 @@
   --red:      #E3242B;   /* red ink */
   --rule:       #CBC9BE;   /* hairlines and borders */
 
-  --display: "Bricolage Grotesque", sans-serif;
+  --display: "aukio-std", sans-serif;
   --body:    "Newsreader", Georgia, serif;
   --spec:    "IBM Plex Mono", monospace;
 }
@@ -348,6 +349,12 @@ footer {
      /* ── printed paper ─────────────────────────────── */
 body {
   background-color: #E9EAE8;   /* neutral stock, not cream */
+}
+
+     /* Aukio ships here at 400 only — never ask for a weight you don't have */
+.mark, .hero h1, .piece h3, .price,
+.commissions h2, .contact h2, .contact-mail {
+  font-weight: 400;
 }
 
 /* two grain layers: fine tooth + broad mottle where ink sits unevenly */
